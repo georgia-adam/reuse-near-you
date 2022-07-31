@@ -38,7 +38,6 @@ function Home({ isAuth }) {
                       deletePost(post.id);
                     }}
                   >
-                    {" "}
                     &#735;
                   </button>
                 )}

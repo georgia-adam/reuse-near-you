@@ -20,6 +20,9 @@ function App() {
 
   return (
     <Router>
+      <header>
+        <h1>ReUse Near You</h1>
+      </header>
       <nav>
         <Link className="navText" to="/">
           Home

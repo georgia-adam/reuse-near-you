@@ -28,9 +28,9 @@ function CreatePost({ isAuth }) {
   return (
     <div className="createPostPage">
       <div className="cpContainer">
-        <h1>Create A Post</h1>
+        <h1>Create a Post</h1>
         <div className="inputGp">
-          <label> Title:</label>
+          <label>Title:</label>
           <input
             placeholder="Title..."
             onChange={(event) => {
@@ -39,7 +39,7 @@ function CreatePost({ isAuth }) {
           />
         </div>
         <div className="inputGp">
-          <label> Post:</label>
+          <label>Post:</label>
           <textarea
             placeholder="Post..."
             onChange={(event) => {
@@ -47,7 +47,7 @@ function CreatePost({ isAuth }) {
             }}
           />
         </div>
-        <button onClick={createPost}> Submit Post</button>
+        <button onClick={createPost}>Submit Post</button>
       </div>
     </div>
   );

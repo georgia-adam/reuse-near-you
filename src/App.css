@@ -26,6 +26,13 @@ a {
   font-size: 25px;
 }
 
+.navText {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.75em;
+  color: white;
+  background-color: black;
+}
+
 .createPostPage {
   width: 100%;
   height: calc(100vh - 80px);
@@ -83,6 +90,7 @@ a {
 input,
 textarea {
   margin-top: 5px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .loginPage {

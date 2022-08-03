@@ -39,15 +39,22 @@ function CreatePost({ isAuth }) {
           />
         </div>
         <div className="inputGp">
-          <label>Post:</label>
+          <label>Image:</label>
+          <input type="file" />
+          <button>Upload Image</button>
+        </div>
+        <div className="inputGp">
+          <label>Text:</label>
           <textarea
-            placeholder="Post..."
+            placeholder="Text..."
             onChange={(event) => {
               setPostText(event.target.value);
             }}
           />
         </div>
-        <button onClick={createPost}>Submit Post</button>
+        <button className="submitButton" onClick={createPost}>
+          Submit Post
+        </button>
       </div>
     </div>
   );

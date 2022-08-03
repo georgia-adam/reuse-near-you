@@ -79,7 +79,7 @@ a {
   height: 150px;
 }
 
-.cpContainer button {
+.submitButton {
   margin-top: 20px;
   height: 40px;
   border: none;
@@ -87,6 +87,7 @@ a {
   cursor: pointer;
   font-size: 18px;
 }
+
 input,
 textarea {
   margin-top: 5px;
@@ -106,7 +107,7 @@ textarea {
   font-size: 30px;
 }
 
-/* GOOGLE BUTTOn */
+/* GOOGLE BUTTON */
 .login-with-google-btn {
   cursor: pointer;
   transition: background-color 0.3s, box-shadow 0.3s;

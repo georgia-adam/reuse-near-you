@@ -1,11 +1,26 @@
 import React, { useState, useEffect } from "react";
 import { addDoc, collection } from "firebase/firestore";
-import { db, auth } from "../firebase-config";
+import { db, auth, storage } from "../firebase-config";
 import { useNavigate } from "react-router-dom";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { v4 } from "uuid";
 
 function CreatePost({ isAuth }) {
   const [title, setTitle] = useState("");
   const [postText, setPostText] = useState("");
+  const [imageUpload, setImageUpload] = useState(null);
+  const [imageUploadURL, setImageUploadURL] = useState("");
+
+  const uploadImage = () => {
+    if (imageUpload == null) return;
+    const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
+    uploadBytes(imageRef, imageUpload).then((snapshot) => {
+      getDownloadURL(snapshot.ref).then((url) => {
+        setImageUploadURL(url);
+        // console.log(imageUploadURL);
+      });
+    });
+  };
 
   const postsCollectionRef = collection(db, "posts");
   let navigate = useNavigate();
@@ -15,6 +30,7 @@ function CreatePost({ isAuth }) {
       title,
       postText,
       author: { name: auth.currentUser.displayName, id: auth.currentUser.uid },
+      image: imageUploadURL,
     });
     navigate("/");
   };
@@ -40,8 +56,13 @@ function CreatePost({ isAuth }) {
         </div>
         <div className="inputGp">
           <label>Image:</label>
-          <input type="file" />
-          <button>Upload Image</button>
+          <input
+            type="file"
+            onChange={(event) => {
+              setImageUpload(event.target.files[0]);
+            }}
+          />
+          <button onClick={uploadImage}>Upload Image</button>
         </div>
         <div className="inputGp">
           <label>Text:</label>

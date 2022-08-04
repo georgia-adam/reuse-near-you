@@ -29,7 +29,7 @@ function Home({ isAuth }) {
           <div key={post.id} className="post">
             <div className="postHeader">
               <div className="title">
-                <h1> {post.title}</h1>
+                <h1>{post.title}</h1>
               </div>
               <div className="deletePost">
                 {isAuth && post.author.id === auth.currentUser.uid && (
@@ -43,7 +43,10 @@ function Home({ isAuth }) {
                 )}
               </div>
             </div>
-            <div className="postTextContainer"> {post.postText} </div>
+            <div>
+              <img src={post.image} />
+            </div>
+            <div className="postTextContainer">{post.postText}</div>
             <h3>@{post.author.name}</h3>
           </div>
         );

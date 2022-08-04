@@ -17,7 +17,6 @@ function CreatePost({ isAuth }) {
     uploadBytes(imageRef, imageUpload).then((snapshot) => {
       getDownloadURL(snapshot.ref).then((url) => {
         setImageUploadURL(url);
-        // console.log(imageUploadURL);
       });
     });
   };

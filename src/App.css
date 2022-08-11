@@ -33,6 +33,12 @@ a {
   background-color: black;
 }
 
+.logOut {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
 .createPostPage {
   width: 100%;
   height: calc(100vh - 80px);

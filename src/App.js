@@ -37,7 +37,7 @@ function App() {
             <Link className="navText" to="/createpost">
               Create Post
             </Link>
-            <button className="navText" onClick={signUserOut}>
+            <button className="navText logOut" onClick={signUserOut}>
               Log Out
             </button>
           </>

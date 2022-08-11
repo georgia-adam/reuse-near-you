@@ -28,7 +28,11 @@ function CreatePost({ isAuth }) {
     await addDoc(postsCollectionRef, {
       title,
       postText,
-      author: { name: auth.currentUser.displayName, id: auth.currentUser.uid },
+      author: {
+        name: auth.currentUser.displayName,
+        id: auth.currentUser.uid,
+        email: auth.currentUser.email,
+      },
       image: imageUploadURL,
     });
     navigate("/");

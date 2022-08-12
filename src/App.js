@@ -6,6 +6,7 @@ import Login from "./pages/Login";
 import { useState } from "react";
 import { signOut } from "firebase/auth";
 import { auth } from "./firebase-config";
+import { Helmet } from "react-helmet";
 
 function App() {
   const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
@@ -20,6 +21,11 @@ function App() {
 
   return (
     <Router>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>ReUse Near You</title>
+        <link rel="canonical" href="https://reuse-near-you.web.app/" />
+      </Helmet>
       <header>
         <h1>ReUse Near You</h1>
       </header>

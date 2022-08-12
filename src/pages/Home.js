@@ -13,6 +13,11 @@ function Home({ isAuth }) {
     await deleteDoc(postDoc);
   };
 
+  const getFirstName = (name) => {
+    const splitName = name.split(" ");
+    return splitName[0];
+  };
+
   useEffect(() => {
     const getPosts = async () => {
       const data = await getDocs(postsCollectionRef);
@@ -53,7 +58,7 @@ function Home({ isAuth }) {
               </div>
               <div className="emailButton">
                 <a href={"mailto:" + post.author.email}>
-                  Email {post.author.name}
+                  Email {getFirstName(post.author.name)}
                 </a>
               </div>
             </div>

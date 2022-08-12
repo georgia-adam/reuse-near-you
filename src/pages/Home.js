@@ -47,7 +47,16 @@ function Home({ isAuth }) {
               <img src={post.image} />
             </div>
             <div className="postTextContainer">{post.postText}</div>
-            <h3>@{post.author.name}</h3>
+            <div className="postFooter">
+              <div className="authorName">
+                <h3>@{post.author.name}</h3>
+              </div>
+              <div className="emailButton">
+                <a href={"mailto:" + post.author.email}>
+                  Email {post.author.name}
+                </a>
+              </div>
+            </div>
           </div>
         );
       })}

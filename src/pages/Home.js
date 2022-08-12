@@ -18,10 +18,22 @@ function Home({ isAuth }) {
     return splitName[0];
   };
 
+  function compare(a, b) {
+    if (a.time < b.time) {
+      return 1;
+    }
+    if (a.time > b.time) {
+      return -1;
+    }
+    return 0;
+  }
+
   useEffect(() => {
     const getPosts = async () => {
       const data = await getDocs(postsCollectionRef);
-      setPostList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      setPostList(
+        data.docs.map((doc) => ({ ...doc.data(), id: doc.id })).sort(compare)
+      );
     };
 
     getPosts();

@@ -21,6 +21,11 @@ function CreatePost({ isAuth }) {
     });
   };
 
+  const getTimeStamp = () => {
+    const date = new Date();
+    return date.getTime();
+  };
+
   const postsCollectionRef = collection(db, "posts");
   let navigate = useNavigate();
 
@@ -34,6 +39,7 @@ function CreatePost({ isAuth }) {
         email: auth.currentUser.email,
       },
       image: imageUploadURL,
+      time: getTimeStamp(),
     });
     navigate("/");
   };

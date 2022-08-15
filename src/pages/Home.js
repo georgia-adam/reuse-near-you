@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getDocs, collection, deleteDoc, doc } from "firebase/firestore";
-import { auth, db } from "../firebase-config";
+import { auth, db, storage } from "../firebase-config";
+import { ref, deleteObject } from "firebase/storage";
 
 function Home({ isAuth }) {
   const [postLists, setPostList] = useState([]);
@@ -11,6 +12,15 @@ function Home({ isAuth }) {
     setRandstate(randstate + 1);
     const postDoc = doc(db, "posts", id);
     await deleteDoc(postDoc);
+  };
+
+  const deleteImage = (url) => {
+    const deleteRef = ref(storage, url);
+    deleteObject(deleteRef)
+      .then(() => {})
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   const getFirstName = (name) => {
@@ -54,6 +64,7 @@ function Home({ isAuth }) {
                   <button
                     onClick={() => {
                       deletePost(post.id);
+                      deleteImage(post.image);
                     }}
                   >
                     &#735;

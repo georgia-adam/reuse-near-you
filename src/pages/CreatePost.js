@@ -21,9 +21,21 @@ function CreatePost({ isAuth }) {
     });
   };
 
-  const getTimeStamp = () => {
+  const getUNIX = () => {
     const date = new Date();
     return date.getTime();
+  };
+
+  const getTimeStamp = () => {
+    const today = new Date();
+    const date =
+      today.getFullYear() +
+      "-" +
+      (today.getMonth() + 1) +
+      "-" +
+      today.getDate();
+    const time = today.getHours() + ":" + today.getMinutes();
+    return date + " " + time;
   };
 
   const postsCollectionRef = collection(db, "posts");
@@ -39,6 +51,7 @@ function CreatePost({ isAuth }) {
         email: auth.currentUser.email,
       },
       image: imageUploadURL,
+      unix: getUNIX(),
       time: getTimeStamp(),
     });
     navigate("/");

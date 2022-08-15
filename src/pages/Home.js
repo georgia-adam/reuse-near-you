@@ -19,10 +19,10 @@ function Home({ isAuth }) {
   };
 
   function compare(a, b) {
-    if (a.time < b.time) {
+    if (a.unix < b.unix) {
       return 1;
     }
-    if (a.time > b.time) {
+    if (a.unix > b.unix) {
       return -1;
     }
     return 0;
@@ -47,6 +47,7 @@ function Home({ isAuth }) {
             <div className="postHeader">
               <div className="title">
                 <h1>{post.title}</h1>
+                <p className="postTime">{post.time}</p>
               </div>
               <div className="deletePost">
                 {isAuth && post.author.id === auth.currentUser.uid && (

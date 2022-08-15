@@ -82,7 +82,25 @@ function CreatePost({ isAuth }) {
             }}
           />
         </div>
-        <button className="submitButton" onClick={createPost}>
+        <button
+          className={
+            title.length === 0 ||
+            title.length > 40 ||
+            postText.length === 0 ||
+            postText.length > 500 ||
+            !imageUploadURL
+              ? "submitButton-disabled"
+              : "submitButton"
+          }
+          onClick={createPost}
+          disabled={
+            title.length === 0 ||
+            title.length > 40 ||
+            postText.length === 0 ||
+            postText.length > 500 ||
+            !imageUploadURL
+          }
+        >
           Submit Post
         </button>
       </div>

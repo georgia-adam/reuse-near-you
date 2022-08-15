@@ -94,6 +94,16 @@ a {
   font-size: 18px;
 }
 
+.submitButton-disabled {
+  margin-top: 20px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  background-color: rgb(206, 206, 206);
+  color: black;
+}
+
 input,
 textarea {
   margin-top: 5px;

@@ -18,7 +18,7 @@ Post data is saved to the Firebase Firestore database. Images are saved to Fireb
 
 ### Homepage
 
-The homepage displays the posts in the app's database. The most recent posts appear at the top of the page. Posts include a title, a timestamp, an image, text, the user's Google account name, and a mailto button to email the user. If the original poster is signed in, they may click on the &#735; at the top right of the post to delete their post. The &#735; is not be displayed for posts by other users.
+The homepage displays the posts in the app's database. The most recent posts appear at the top of the page. Posts include a title, a timestamp, an image, text, the user's Google account name, and a mailto button to email the user. If the original poster is signed in, they may click on the &#735; at the top right of the post to delete their post. The &#735; is not displayed for posts by other users.
 
 ## Dependencies
 
